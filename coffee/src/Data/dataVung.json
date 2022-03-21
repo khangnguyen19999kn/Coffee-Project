@@ -1,0 +1,34 @@
+[
+    {
+        "id":1,
+        "maVung":"HCM",
+        "tenVUng":"Hồ Chí Minh"
+    },
+    {
+        "id":2,
+        "maVung":"HN",
+        "tenVUng":"Hà Nội"
+    },
+    {
+        "id":3,
+        "maVung":"HP",
+        "tenVUng":"Hải Phòng"
+    },
+    {
+        "id":4,
+        "maVung":"ĐN",
+        "tenVUng":"Đà Nẵng"
+    },
+    {
+        "id":5,
+        "maVung":"ĐNA",
+        "tenVUng":"Đồng Nai"
+    },
+    {
+        "id":6,
+        "maVung":"BRVT",
+        "tenVUng":"Bà Rịa Vũng Tàu"
+    }
+
+    
+]

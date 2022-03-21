@@ -1,0 +1,130 @@
+[
+    {
+        "id":1,
+        "maVung":"HCM",
+        "address":"114 Đường 9A Khu Dân cư Trung Sơn, Huyện Bình Chánh, Hồ Chí Minh, Việt Nam",
+        "img":"./StorePic/HCM1.jpeg"
+
+    },
+    {
+        "id":2,
+        "maVung":"HCM",
+        "address":"93/5 Nguyễn Ảnh Thủ, Huyện Hóc Môn, Hồ Chí Minh, Việt Nam",
+        "img":"./StorePic/HCM2.jpeg"
+
+    },
+    {
+        "id":3,
+        "maVung":"HCM",
+        "address":"798 Sư Vạn Hạnh, Quận 10, Hồ Chí Minh, Việt Nam",
+        "img":"./StorePic/HCM3.jpeg"
+
+    },
+    {
+        "id":4,
+        "maVung":"HCM",
+        "address":"572 Ba Tháng Hai, Quận 10, Hồ Chí Minh, Việt Nam",
+        "img":"./StorePic/HCM4.jpeg"
+        
+    },
+    {
+        "id":5,
+        "maVung":"HCM",
+        "address":"141 Nguyễn Thái Bình, Quận 1, Hồ Chí Minh, Việt Nam",
+        "img":"./StorePic/HCM5.jpeg"
+
+    },
+    {
+        "id":6,
+        "maVung":"HCM",
+        "address":"45 Đường Số 5 - Cư xá Bình Thới, Quận 11, Hồ Chí Minh, Việt Nam",
+        "img":"./StorePic/HCM6.jpeg"
+
+    },
+    {
+        "id":7,
+        "maVung":"HCM",
+        "address":"403A-405A Lê Đại Hành, Quận 11, Hồ Chí Minh, Việt Nam",
+        "img":"./StorePic/HCM7.jpeg"
+
+    },
+    {
+        "id":8,
+        "maVung":"HCM",
+        "address":"44 Hòa Bình, Quận 11, Hồ Chí Minh, Việt Nam",
+        "img":"./StorePic/HCM8.jpeg"
+
+    },
+    {
+        "id":9,
+        "maVung":"HCM",
+        "address":"57 Xuân Thủy, Quận 2, Hồ Chí Minh, Việt Nam",
+        "img":"./StorePic/HCM9.jpeg"
+
+    },
+    {
+        "id":10,
+        "maVung":"HCM",
+        "address":"223 Võ Văn Tần, Quận 3, Hồ Chí Minh, Việt Nam",
+        "img":"./StorePic/HCM10.PNG"
+
+    }, 
+    {
+        "id":11,
+        "maVung":"HN",
+        "address":"3 Trung Hòa, Cầu Giấy, Hà Nội, Việt Nam",
+        "img":"./StorePic/HN3.jpeg"
+
+    },
+    {
+        "id":12,
+        "maVung":"HN",
+        "address":"259 Kim Mã, Ba Đình, Hà Nội, Việt Nam",
+        "img":"./StorePic/HN1.jpeg"
+
+    },
+    {
+        "id":13,
+        "maVung":"HN",
+        "address":"2 Hồ Tùng Mậu, Cầu Giấy, Hà Nội, Việt Nam",
+        "img":"./StorePic/HN2.jpeg"
+
+    },
+    {
+        "id":14,
+        "maVung":"HP",
+        "address":"15 Trần Phú, Ngô Quyền, Hải Phòng, Việt Nam",
+        "img":"./StorePic/Hp1.jpeg"
+
+    },
+    {
+        "id":15,
+        "maVung":"HP",
+        "address":"86 Điện Biên Phủ, Hồng Bàng, Hải Phòng, Việt Nam",
+        "img":"./StorePic/hp2.jpg"
+
+    },
+    {
+        "id":16,
+        "maVung":"ĐN",
+        "address":"80A Nguyễn Chí Thanh, Quận Hải Châu, Đà Nẵng, Việt Nam",
+        "img":"./StorePic/DN1.jpeg"
+
+    }
+    ,
+    {
+        "id":17,
+        "maVung":"ĐNA",
+        "address":"R132 Võ Thị Sáu, Thành Phố Biên Hòa, Đồng Nai, Việt Nam",
+        "img":"./StorePic/DNA1.jpeg"
+
+    }
+    ,
+    {
+        "id":18,
+        "maVung":"BRVT",
+        "address":"A4-2 Nguyễn Văn Linh, Quận Hải Châu, Đà Nẵng, Việt Nam",
+        "img":"./StorePic/BRVT1.jpg"
+
+    }
+]
