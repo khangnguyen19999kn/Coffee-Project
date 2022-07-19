@@ -21,6 +21,9 @@ import StorePage from './page/Store/StorePage';
 import CheckOut from './page/CheckOut/CheckOut';
 import data from "./Data/dataProduct.json";
 import TestDetail from './Header/TestDetail';
+import { PageProductProvider } from './Context/Provider/PageProductProvider';
+import DetailNews from './page/News/DetailNews';
+
 
 
 function App() {
@@ -29,6 +32,7 @@ function App() {
   return (
     <BrowserRouter>
     <CartProvider>
+    <PageProductProvider>
       <Header/>
       <Routes>
         <Route exact path='/home' element={<Home/>} />
@@ -37,12 +41,16 @@ function App() {
         <Route exact path='/list-product' element={<ListProduct/>} />
         <Route exact path='/store' element={<StorePage/>} />
         <Route exact path='/checkout' element={<CheckOut/>} />
-        <Route exact path='/product/:id' element={<TestDetail/>} />
+
+        {/* <Route exact path='/product/:id' element={<TestDetail/>} /> */}
+        <Route exact path='/news/1' element={<DetailNews/>} />
+        <Route exact path='/product/:id' element={<PageProduct/>} />
         <Route  path='*' element={<Home/>} />
       
       </Routes>
          <ModalFooter />
         <Footer />
+      </PageProductProvider>
       </CartProvider>
     </BrowserRouter>
   );

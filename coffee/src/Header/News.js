@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom';
 import data from "../Data/dataNews.json";
 
 export default class News extends Component {
@@ -14,7 +15,9 @@ export default class News extends Component {
     renderNews=()=>{
         let listNews = data.map((news)=>{
             return (
-                <div style={{padding:'15px' }} className="col-3 mt-4">
+                <div style={{padding:'15px' }} className="col-6 col-sm-6 col-md-4 ccol-lg-3 col-xl-3 mt-4">
+                <NavLink to={`/news/${news.id}`}>
+                 
                 <div
                     className="card"
                     style={{
@@ -31,25 +34,21 @@ export default class News extends Component {
                             alt="Card image cap"
                         />
                     </div>
-                    <div className="card-body">
+                    <div className="card-body card-body-news">
                         <span style={{ fontWeight: 650 }} className="card-title">
                         {news.header}
                         </span>
-                        <button class=" d-inline-block btn btn--orange align-items-center btn--radius-100 float-right"
-                            style={{
-                                borderRadius: '20px',
-                                color: 'white',
-                                background: 'orange',
-                                marginTop: '14px'
-                            }}
+                        <button class=" d-inline-block btn btn--orange align-items-center btn--radius-100 float-right button-read-continue"
+                         
                         >
                             <a>
-                                <span class="text">ĐỌC TIẾP</span>
+                                <span class="text-read-continue">ĐỌC TIẾP</span>
                             </a>
                         </button>
 
                     </div>
                 </div>
+                </NavLink>  
             </div>
 
             )
@@ -82,7 +81,7 @@ export default class News extends Component {
                         class="
               tch-box__title
               d-flex
-              justify-content-start justify-content-md-center
+            justify-content-center
               align-items-center
             "
                     >

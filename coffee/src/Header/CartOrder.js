@@ -2,57 +2,104 @@ import React, { useState } from 'react'
 import { InputField } from '../FormFields/InputField';
 import { useForm, Controller } from "react-hook-form";
 import { CartContext } from "../Context/_Context/CartContext";
-import { NavLink ,Navigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import * as yup from "yup";
+import { yupResolver } from '@hookform/resolvers/yup';
+import Axios from 'axios'
+
 
 
 export default function CartOrder() {
+    const schema = yup.object().shape({
+        fullname: yup.string().required("Full name is required!"),
+        phone: yup.string().required("Phone is required!"),
+      
+      }).required();
 
     const { register, handleSubmit, control, formState: { errors } } = useForm({
+        resolver: yupResolver(schema)
         // defaultValues: initialValues,
 
     });
     const listOrder1 = JSON.parse(localStorage.getItem('productOrder')) || [];
     const [listOrder, setListOrder] = useState(listOrder1);
-  
+    let navigate = useNavigate();
+
 
 
     const moveItem = (index) => {
-     
+
 
         let list = listOrder;
+        console.log(list)
         console.log(list.length)
-        if(list.length===1){
-            moveAll();
-            <Navigate to="/list-product" replace={true} />
-           
-       }
-       else{
+        if (list.length === 1) {
+
+            navigate('/list-product', { replace: true });
+
+        }
+
         list.splice(index, 1);
         localStorage.setItem('productOrder', JSON.stringify(list));
         setListOrder(JSON.parse(localStorage.getItem('productOrder')))
-       } 
-      
+
+
+
 
     }
+
 
     const moveAll = async () => {
         localStorage.removeItem('productOrder')
         await setListOrder([]);
-        
+
 
     }
-    const totalBill = (listOrder) =>{
+    const totalBill = (listOrder) => {
         let totalMoney = listOrder.reduce((order1, order2) => {
-            return order1 + order2.totalPrice
-            
+            return order1 + order2.resultPrice
+
         }, 0)
         return totalMoney
     }
+    const order = () => {
+        console.log(JSON.stringify(listOrder))
+        console.log(localStorage.getItem('address'))
+
+        // const bill ={...}
+    }
+    const onSubmit = data =>{
+        const address =localStorage.getItem('address');
+       
+        const infoOrder = {...data,address,listOrder};
+        Axios({
+            url: 'http://localhost:9696/api/v1/cart',
+            method: 'POST',
+            data: { ...infoOrder}
+            
+      
+          }).catch((err) => {
+            console.log(err);
+           
+      
+          }).then((res) => {
+            console.log(res.data)
+           
+      
+      
+      
+          });
+        // console.log(infoOrder)
+        
+      
+    }
+ 
 
 
 
     const listItem = listOrder.map((item, index) => {
-       
+
         return (
             <div style={{ marginTop: '10px' }} className="tch-order-card d-flex align-items-center justify-content-between">
                 <div className="tch-order-card__left d-flex">
@@ -67,20 +114,24 @@ export default function CartOrder() {
                         <p style={item.note === "" ? { display: 'none' } : {}}>Note:{item.note}</p>
                         <CartContext.Consumer>
                             {({ DeleteInCart }) =>
-                                <p onClick={() => { moveItem(index); DeleteInCart(listOrder)}} className="tch-order-delete-item">Xóa{index}</p>
+
+                                <p onClick={() => { moveItem(index); DeleteInCart(listOrder) }} className="tch-order-delete-item">Xóa{index}</p>
+
                             }
+
                         </CartContext.Consumer>
 
                     </div>
                 </div>
                 <div className="tch-order-card__right">
-                    <p className="tch-order-card__price mb-0">{item.totalPrice.toLocaleString()}đ</p>
+                    <p className="tch-order-card__price mb-0">{item.resultPrice.toLocaleString()}đ</p>
                 </div>
             </div>
         )
     });
-    
+
     return (
+        <form onSubmit={handleSubmit(onSubmit)}>
         <div>
             <div className='container-lg container-fluid  cart_order_all'>
                 <div className='d-flex justify-content-center title_cart_order'>
@@ -113,18 +164,22 @@ export default function CartOrder() {
 
                                     </div>
                                 </div>
-                                <div className='cart_order_input_info'>
-                                    <div className='cart_order_input_info_fullname'>
-                                        <InputField control={control} name="fullname" label="Họ và tên" />
-                                    </div>
-                                    <div className='cart_order_input_info_phoneNumber'>
-                                        <InputField control={control} name="phone" label="Số điện thoại" />
-                                    </div>
-                                    <div className='cart_order_input_info_note'>
-                                        <InputField control={control} name="HuongDan" label="Thêm hướng dẫn giao hàng" />
+                                
+                                    <div className='cart_order_input_info'>
+                                        <div className='cart_order_input_info_fullname'>
+                                            <InputField inputProps={"123"} onChange={(e)=>{console.log(e.target.value)}} control={control} name="fullname" label="Họ và tên" />
+                                        </div>
+                                        <div className='cart_order_input_info_phoneNumber'>
+                                            <InputField control={control} name="phone" label="Số điện thoại" />
+                                        </div>
+                                        <div className='cart_order_input_info_note'>
+                                            <InputField control={control} name="HuongDan" label="Thêm hướng dẫn giao hàng" />
 
+                                        </div>
                                     </div>
-                                </div>
+
+                          
+
                                 <h5 class="cart_checkout-box__delivery">Phương thức thanh toán</h5>
                                 <section>
                                     <div style={{ alignItems: 'start' }} class="d-flex flex-column justify-content-start">
@@ -188,9 +243,9 @@ export default function CartOrder() {
                                         <h5 class="cart_checkout-box__choise">Các món đã chọn</h5>
                                         <div style={{ textDecoration: 'none', color: 'black', width: '44%' }}>
 
-                                        <NavLink to="/list-product" >
-                                            <p class="tch-checkout-box__btn-outline">Thêm món</p>
-                                        </NavLink>
+                                            <NavLink to="/list-product" >
+                                                <p class="tch-checkout-box__btn-outline">Thêm món</p>
+                                            </NavLink>
                                         </div>
                                     </div>
                                     <div className="d-flex flex-column cart_part-2_item_order">
@@ -236,24 +291,25 @@ export default function CartOrder() {
                                         <p className="tch-order-card__text text-white mb-0">Thành tiền</p>
                                         <p className="tch-order-card__text text-white f-600 mb-0">{totalBill(listOrder).toLocaleString()} đ</p>
                                     </div>
-                                    <button type="button" className="btn_order">
+                                    <button type="submit"   className="btn_order">
                                         Đặt hàng
                                     </button>
                                 </div>
+                               
                                 {/* button xóa giỏ hàng */}
                                 <CartContext.Consumer>
-                                {({ DeleteInCart }) =>
-                                <NavLink to="/list-product">
-                                <div onClick={() => { moveAll();DeleteInCart([]) }} className="tch-checkout-box tch-checkout-box--remove-card mt-4">
-                                    <p className="tch-checkout-box__text text-center mb-0">
-                                        <span className="icon mr-2">
-                                            <i aria-hidden="true" className="fa fa-trash">
-                                            </i>
-                                        </span>
-                                        <span >Xóa đơn hàng</span>
-                                    </p>
-                                </div>
-                                </NavLink>  } 
+                                    {({ DeleteInCart }) =>
+                                        <NavLink to="/list-product">
+                                            <div onClick={() => { moveAll(); DeleteInCart([]) }} className="tch-checkout-box tch-checkout-box--remove-card mt-4">
+                                                <p className="tch-checkout-box__text text-center mb-0">
+                                                    <span className="icon mr-2">
+                                                        <i aria-hidden="true" className="fa fa-trash">
+                                                        </i>
+                                                    </span>
+                                                    <span >Xóa đơn hàng</span>
+                                                </p>
+                                            </div>
+                                        </NavLink>}
                                 </CartContext.Consumer>
 
                             </div>
@@ -265,5 +321,6 @@ export default function CartOrder() {
             </div>
 
         </div>
+        </form>
     )
 }

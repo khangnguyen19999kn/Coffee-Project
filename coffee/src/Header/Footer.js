@@ -8,10 +8,10 @@ export default class extends Component {
         return (
             <div>
             <div className="footer_background_all">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-2 mt-5 ">
-                            <img src="./logo-footer.72c86fc.png">
+                <div className="container collapse-footer-container">
+                    <div className="row collapse-footer-row">
+                        <div className="col-2  logo-collapse">
+                            <img className='logo-collapse-img' src="./logo-footer.72c86fc.png">
                             </img>
                         </div>
                         <div className="col-2">
@@ -92,13 +92,13 @@ export default class extends Component {
             <div className="footer_of_footer">
             <div className="container">
                     <div className="row">
-                        <div className="col-10 pt-4"> 
+                        <div className="col-9 pt-4"> 
                        
                             <span>Copyright © 2021 The Coffee House. All rights reserved.</span>
                         </div>
-                        <div className="col-2 pt-2">
+                        <div className="col-3 pt-3">
                             <a href="http://online.gov.vn/Home/WebDetails/48042" target="_blank" style={{targetNew:'tab'}}>
-                                <img src="./active.4cba64f.png" alt="Đã cấp phép">
+                                <img className='img-footer_of_footer' src="./active.4cba64f.png" alt="Đã cấp phép">
                                 </img>
                             </a>
 

@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect, useContext } from "react";
 import "./styles.scss";
 import "@fortawesome/fontawesome-free/js/all.js";
 import AlgoliaPlaces from "algolia-places-react";
@@ -6,13 +6,25 @@ import ModalLogin from "./ModalLogin";
 import ModalDelivery from "./ModalDelivery";
 import CartOrder from "./CartOrder";
 import { CartContext } from "../Context/_Context/CartContext";
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
 export default function Header() {
   let addressLocal = localStorage.getItem('address');
   const [address, setAddress] = useState(!addressLocal ? "" : addressLocal)
+  const [token, setToken] = useState(0);
+  const { checkToken } = useContext(CartContext);
+
+  // let headerLogin = null;
+
+  // useEffect(() => {
+  //   headerLogin = checkToken?.();
+
+
+
+  // }, []);
 
   let styleOfShoppingcart = {
     float: 'right',
@@ -30,9 +42,10 @@ export default function Header() {
   };
 
 
- 
+
+
   return (
-    <div style={{marginBottom:'55px'}}>
+    <div style={{ marginBottom: '55px' }}>
 
 
 
@@ -43,8 +56,8 @@ export default function Header() {
         className="navbar fixed-top navbar-expand-lg navbar-light   text-secondary"
       >
         <NavLink
-          style={{ paddingLeft: "140px" }}
-          className="navbar-brand text-secondary "
+      
+          className="navbar-brand text-secondary logo-header "
           to="/"
         >
           <img
@@ -55,15 +68,10 @@ export default function Header() {
         </NavLink>
         {/* //Thanh địa chỉ */}
         <div
-          style={{
-            width: "268px",
-            borderRadius: "30px",
-            background: "rgba(238,139,29,1)",
-            marginLeft: "40px",
-          }}
+      
           data-toggle="modal"
           data-target="#ModalAddress"
-        // className="container"
+        className="open-address-modal"
         >
           <div className="container__panel">
             <div className="container__panel__logo">
@@ -87,22 +95,22 @@ export default function Header() {
           <ul style={{ fontWeight: "600" }} className="navbar-nav mr-auto ">
             <li className="nav-item  pl-2 ">
               <NavLink style={({ isActive }) =>
-              isActive ? activeStyle : undefined
-           } className="nav-link text-white " to="/list-product">
+                isActive ? activeStyle : undefined
+              } className="nav-link text-white " to="/list-product">
                 Đặt hàng
               </NavLink>
             </li>
             <li className="nav-item pl-2">
               <NavLink style={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            } className="nav-link text-white" to="/news">
+                isActive ? activeStyle : undefined
+              } className="nav-link text-white" to="/news">
                 Tin tức
               </NavLink>
             </li>
             <li className="nav-item pl-2">
               <NavLink style={({ isActive }) =>
-              isActive ? activeStyle : undefined
-            }className="nav-link text-white" to="/store">
+                isActive ? activeStyle : undefined
+              } className="nav-link text-white" to="/store">
                 Cửa hàng
               </NavLink>
             </li>
@@ -122,63 +130,35 @@ export default function Header() {
           className="collapse navbar-collapse pl-5 "
           id="navbarSupportedContent"
         >
-          <ul className="navbar-nav mr-auto ">
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-              >
-                <img
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    marginTop: "10px",
-                    marginRight: "-15px",
-                  }}
-                  src={"./Login.70dc3d8.png"}
-                  alt="shopping"
-                ></img>
-              </a>
-              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a className="dropdown-item" href="#">
-                  <i class="fas fa-history fa-sm"></i> Tra cứu đơn hàng
-                </a>
-                <a className="dropdown-item" data-toggle="modal" data-target="#ModalLogin" href="#">
-                  <i class="fas fa-sign-in-alt fa-sm"></i> Đăng nhập
-                </a>
+          <CartContext.Consumer>
+            {({ quantity }) =>
+              <ul className="navbar-nav mr-auto ">
+                {checkToken()}
 
-              </div>
-            </li>
+                <li className="nav-item ">
 
-            <li className="nav-item ">
-            <CartContext.Consumer>
-                    {({ quantity }) => 
-              <NavLink
-                style={{ paddingLeft: "0px" }}
-                className="nav-link text-white  "
-                to={quantity>0?"/checkout":"/list-product"}
-              >
-                <img
-                  style={{ width: "72px", height: "65px" }}
-                  src={"./Carticon.373916c.png"}
-                  alt="shopping"
-                ></img>
-               
-                <div style={styleOfShoppingcart} class={quantity>0?'d-flex justify-content-center':'justify-content-center'}>
-                      <span>{quantity}</span> 
+                  <NavLink
+                    style={{ paddingLeft: "0px" }}
+                    className="nav-link text-white  "
+                    to={quantity > 0 ? "/checkout" : "/list-product"}
+                  >
+                    <img
+                      style={{ width: "72px", height: "65px" }}
+                      src={"./Carticon.373916c.png"}
+                      alt="shopping"
+                    ></img>
 
-                </div>
-              </NavLink>}
-              </CartContext.Consumer>
+                    <div style={styleOfShoppingcart} class={quantity > 0 ? 'd-flex justify-content-center' : 'justify-content-center'}>
+                      <span>{quantity}</span>
 
-            </li>
+                    </div>
+                  </NavLink>
 
-          </ul>
+                </li>
+
+              </ul>
+            }
+          </CartContext.Consumer>
         </div>
       </nav>
       {/* ModalLogin */}

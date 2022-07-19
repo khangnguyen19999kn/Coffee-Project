@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Footer from '../../Header/Footer'
 import ModalFooter from '../../Header/ModalFooter'
 import News from '../../Header/News'
-export default function NewsPage () {
+import { useScrollTopPage } from '../../hook/useScrollTopPage'
+export default function NewsPage() {
+    useScrollTopPage();
+
     return (
         <div>
-            <News/>
+            <News />
         </div>
     )
 }

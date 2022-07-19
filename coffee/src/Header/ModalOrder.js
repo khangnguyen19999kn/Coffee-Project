@@ -13,8 +13,30 @@ function ModalOrder({ item, index, styleMiniusQuantity, changeQuantity, quantity
         note: '',
         size_product: 'small'
     }
-    let totalPrice = parseInt((item.price.split('đ').join(''))) * quantity;
+    const [totalPrice, setTotalPrice] = useState(0);
+    // let totalPrice = parseInt((item.price.split('đ').join(''))) * quantity;
+    let resultPrice = (totalPrice === 0 ? parseInt(item.price):totalPrice ) * quantity;
+    const selectSize = (size) => {
 
+
+
+        if (size === 'big') {
+
+            let newPrice = parseInt(item.price) + 10000;
+            setTotalPrice(newPrice)
+
+
+        }
+        else if (size === 'medium') {
+
+            let newPrice = parseInt(item.price) + 6000;
+            setTotalPrice(newPrice)
+
+        }
+        else setTotalPrice(parseInt(item.price))
+        
+
+    }
 
 
     const { register, handleSubmit, control, formState: { errors } } = useForm({
@@ -38,8 +60,8 @@ function ModalOrder({ item, index, styleMiniusQuantity, changeQuantity, quantity
     }
 
     const onSubmitForm = (data) => {
-        let infoOrder = { ...initialValues, ...data, quantity,totalPrice }
-        // console.log(infoOrder)
+        let infoOrder = { ...initialValues, ...data, quantity,resultPrice }
+     
         let arrayOfLocal = JSON.parse(localStorage.getItem(`productOrder`)) || [];
         
 
@@ -62,7 +84,7 @@ function ModalOrder({ item, index, styleMiniusQuantity, changeQuantity, quantity
 
         hideModal('#exampleAddPro' + index);
         countDown();
-        console.log(arrayOfLocal)
+        
     }
 
     // if (ArrayOfLocal.length > 1) {
@@ -169,14 +191,14 @@ function ModalOrder({ item, index, styleMiniusQuantity, changeQuantity, quantity
                                     <span class="card-product-option-text">CHỌN SIZE (BẮT BUỘC)</span>
                                 </div>
                                 <div className="container">
-                                    <div className="row">
+                                    <div className="row size-product-row">
                                         <div style={{ paddingLeft: '12px' }} className="col-4 mt-3">
                                             <div className=" custom-control card-product-option-item custom-radio mb-0">
-                                                <input type="radio"  {...register("size_product")} value="small" name="size_product" id={`Nhỏ-${index}`} className="custom-control-input" />
+                                                <input onClick={() => { selectSize('small') }} type="radio"  {...register("size_product")} value="small" name="size_product" id={`Nhỏ-${index}`} className="custom-control-input" />
                                                 <label htmlFor={`Nhỏ-${index}`} className="custom-control-label card-product-option-label  tch-custom-radio">
                                                     <div className="card-product-option-value">
                                                         <span className="text card-product-option-size">Nhỏ</span>
-                                                        <p>+ 0đ</p>
+                                                        <p>+0đ</p>
                                                     </div>
                                                 </label>
                                             </div>
@@ -185,13 +207,13 @@ function ModalOrder({ item, index, styleMiniusQuantity, changeQuantity, quantity
                                         </div>
                                         <div style={{ paddingLeft: '12px' }} className="col-4 mt-3">
                                             <div className=" custom-control card-product-option-item custom-radio mb-0">
-                                                <input type="radio"  {...register("size_product")} value="normal" name="size_product" id={`Vừa-${index}`} className="custom-control-input"
+                                                <input onClick={() => { selectSize('medium') }} type="radio"  {...register("size_product")} value="normal" name="size_product" id={`Vừa-${index}`} className="custom-control-input"
                                                 // onChange={onChange}
                                                 />
                                                 <label htmlFor={`Vừa-${index}`} className="custom-control-label card-product-option-label  tch-custom-radio">
                                                     <div className="card-product-option-value">
                                                         <span className="text card-product-option-size">Vừa</span>
-                                                        <p >+ 6.000đ</p>
+                                                        <p >+6.000đ</p>
                                                     </div>
                                                 </label>
                                             </div>
@@ -200,11 +222,11 @@ function ModalOrder({ item, index, styleMiniusQuantity, changeQuantity, quantity
                                         </div>
                                         <div style={{ paddingLeft: '12px' }} className="col-4 mt-3">
                                             <div className=" custom-control card-product-option-item custom-radio mb-0">
-                                                <input type="radio" {...register("size_product")} value="big" name="size_product" id={`Lon-${index}`} className="custom-control-input" />
+                                                <input onClick={() => { selectSize('big') }} type="radio" {...register("size_product")} value="big" name="size_product" id={`Lon-${index}`} className="custom-control-input" />
                                                 <label htmlFor={`Lon-${index}`} className="custom-control-label card-product-option-label  tch-custom-radio">
                                                     <div className="card-product-option-value">
                                                         <span className="text card-product-option-size">Lớn</span>
-                                                        <p >+ 10.000đ</p>
+                                                        <p >+10.000đ</p>
                                                     </div>
                                                 </label>
                                             </div>
@@ -225,7 +247,7 @@ function ModalOrder({ item, index, styleMiniusQuantity, changeQuantity, quantity
                                     <button type="submit" class="btn_modal_add"
                                         onClick={() => addToCart(quantity)}
                                     >
-                                        {parseInt((item.price.split('đ').join(''))) * quantity}đ -Thêm vào giỏ hàng
+                                        {(totalPrice === 0 ? parseInt(item.price):totalPrice ) * quantity}đ -Thêm vào giỏ hàng
                                     </button>}
                             </CartContext.Consumer>
                         </div>

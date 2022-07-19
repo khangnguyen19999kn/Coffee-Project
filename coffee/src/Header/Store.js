@@ -43,7 +43,7 @@ export default function Store() {
         }
 
         refInput.current = setTimeout(() => {
-            console.log('abc')
+            
             setInput(event.target.value)
         }, 900)
     }

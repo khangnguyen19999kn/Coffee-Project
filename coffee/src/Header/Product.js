@@ -26,11 +26,11 @@ const Product = () => {
   const [posts, setPosts] = useState([]);
 
   // lấy dữ liệu từ api bằng axios
-  
-    
-    useEffect(() => { 
-      let promise = Axios({
-      url: 'http://localhost:9696/api/v1/product',
+
+
+  useEffect(() => {
+    let promise = Axios({
+      url: 'http://34.229.140.188:9696/api/v1/product',
       // type: 'json',
       method: 'GET',
       // headers : { 'Access-Control-Allow-Origin' : '*','Access-Control-Allow-Headers' : '*'}
@@ -39,18 +39,18 @@ const Product = () => {
       console.log(err);
       console.log('Lấy dữ liệu thất bại')
     })
-     promise.then((result) => {
+    promise.then((result) => {
       console.log('Lấy dữ liệu thành công')
-      setPosts(result.data) ;
+      setPosts(result.data);
 
     });
 
 
-    
+
   }, []);
 
-   
-  
+
+
   let styling = {}
 
   const changeStateQuantity = (quantity) => {
@@ -99,8 +99,9 @@ const Product = () => {
   };
 
 
-  const renderTest =  () => {
-    console.log(posts)
+  const renderTest = () => {
+
+
     let listDataFilter = posts.filter(
       (product) => product.type === type
     );
@@ -108,28 +109,31 @@ const Product = () => {
 
     let contentListProduct = listDataFilter.map((item, index) => {
       return (
-        <div >
-          <div style={{ marginRight: "10px" }} className="col-2 mt-4">
 
+        <div className="col-6 col-sm-6 col-md-4 ccol-lg-3 col-xl-3 mt-4">
+          <div className="card-layout">
             <div
               className="card"
               style={{
-                width: "12rem",
-                height: "280px",
                 boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",
               }}
             >
               <div className="product_center_image">
-                <img
-                  alt=""
-                  className="card-img-top"
-                  src={item.img}
-                />
+                <NavLink to={`/product/${item.id}`}>
+                  <img
+                    alt=""
+                    className="card-img-top"
+                    src={item.img}
+
+                  />
+                </NavLink>
               </div>
               <div style={{ padding: '0.5rem 1.2rem' }} className="card-body">
-                <span style={{ fontWeight: 600, color: 'black' }} className="card-title">
-                  {item.name}
-                </span>
+                <NavLink to={`/product/${item.id}`}>
+                  <span style={{ fontWeight: 600, color: 'black' }} className="card-title">
+                    {item.name}
+                  </span>
+                </NavLink>
                 <div className="product_price">
                   <ul className="product_list-item_price">
                     <li className="product_list-item_price_1">{item.price}</li>
@@ -139,15 +143,7 @@ const Product = () => {
                     <li>
                       <a
                         onClick={() => changeStateQuantity(1)}
-                        href="#1"
-                        style={{
-                          background: "#fa8c16",
-                          borderRadius: "100%",
-                          width: "29%",
-                          marginLeft: "104px",
-                          marginTop: "-70px",
-                        }}
-                        class="btn text-white"
+                        class="btn text-white btn-plus-addproc"
                         data-toggle="modal"
                         data-target={"#exampleAddPro" + index}
                       >
@@ -164,6 +160,7 @@ const Product = () => {
           <ModalOrder item={item} index={index} styleMiniusQuantity={styleMiniusQuantity} changeQuantity={changeQuantity} quantity={quantity} />
           {/* <PageProduct item={item} index={index} styleMiniusQuantity={styleMiniusQuantity} changeQuantity={changeQuantity} quantity={quantity}/> */}
         </div>
+
 
 
       );
@@ -183,7 +180,8 @@ const Product = () => {
 
 
   return (
-    <div className="pt-2">
+
+    <div className="product-list pt-2">
       {/* Header Of Product */}
       <div
         style={{ marginTop: "30px" }}
@@ -194,7 +192,7 @@ const Product = () => {
           class="
               tch-box__title
               d-flex
-              justify-content-start justify-content-md-center
+ justify-content-center
               align-items-center
             "
         >
@@ -208,6 +206,8 @@ const Product = () => {
           </div>
         </div>
       </div>
+      <div className="list-type-product">
+
       <ul
         style={{ listStyleType: "none" }}
         className=" tch-category-card-list tch-category-card-list--spacing
@@ -229,7 +229,7 @@ const Product = () => {
           >
             <div className="card-body text-primary">
               <a
-                href="#1"
+
                 onClick={() =>
                   changeStateType("Cà phê", "10")
                 }
@@ -258,7 +258,7 @@ const Product = () => {
               className="card-body text-primary"
             >
               <a
-                href="#1"
+
                 onClick={() =>
                   changeStateType("Trà trái cây", "10")
                 }
@@ -287,7 +287,7 @@ const Product = () => {
               className="card-body text-primary"
             >
               <a
-                href="#1"
+
                 onClick={() =>
                   changeStateType("Đá xay", "10")
                 }
@@ -316,7 +316,7 @@ const Product = () => {
               className="card-body text-primary"
             >
               <a
-                href="#1"
+
                 onClick={() =>
                   changeStateType("Dùng tại nhà", "10")
                 }
@@ -345,7 +345,8 @@ const Product = () => {
               className="card-body text-primary"
             >
               <a
-                href="#1"
+
+
                 onClick={() =>
                   changeStateType("Bánh", "10")
                 }
@@ -360,15 +361,16 @@ const Product = () => {
           </div>
         </li>
       </ul >
+      </div>
       {/* Item list */}
       <div div className="container" >
-        <div style={{ minWidth: "1329px" }} className="row">
+        <div className="row">
           {renderTest()}
         </div>
       </div>
       <div style={{ paddingTop: '50px' }} class="d-flex justify-content-center ">
 
-        <a href="#1" style={styling} onClick={() =>
+        <a style={styling} onClick={() =>
           changeStateType(type, "all")
         }>
           <span style={{ fontWeight: 600, fontSize: '16px' }} className="text-warning"  >Xem tất cả</span>&nbsp;&nbsp;

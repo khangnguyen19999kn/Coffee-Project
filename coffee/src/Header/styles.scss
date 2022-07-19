@@ -45,13 +45,14 @@
   border-style: dotted;
   border-color: #f3840d;
   border-radius: 35px;
-  width: 300px;
+  width: 42.86%;
   min-height: 65px;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: auto;
   position: relative;
-  left: 28%;
+  // left: 28%;
   bottom: 19px;
 
   &_content {
@@ -115,19 +116,63 @@
 }
 .slide_body {
   background-color: #f3840d;
-  min-height: 520px;
   margin-top: 55px;
+  overflow: hidden;
+  position: relative;
+  height: 50vw;
+
 }
 .slide_content {
-  // height: 100%;
+  height: 100%;
   // display: flex;
   // align-items: center;
   // justify-content: center;
   // padding-left: 170px;
   // padding-top: 20px
+  // img {
+  //   width: 1200px;
+  //   height: 480px;
+  // }
+
+  .ant-carousel {
+    padding-left: 0;
+    height: 100%;
+  }
+
   img {
-    width: 1200px;
-    height: 480px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 5px;  
+  }
+
+  .ant-carousel .slick-dots-bottom {
+    bottom: 5%;
+    width: 100%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    // transform: translateX(-50%);
+  }
+
+  .ant-carousel .slick-slider {
+    height: 100%;
+  }
+
+  .slick-list {
+    height: 100%;
+  }
+
+  .slick-track {
+    height: 100%;
+  }
+
+  .slick-slide {
+    height: 100%;
+
+    div {
+      height: 100%;
+    }
   }
 }
 .product_text_content_header {
@@ -140,10 +185,21 @@
   align-items: center;
   justify-content: center;
 }
+.product-list {
+  overflow: hidden;
+}
+.list-type-product {
+  overflow-x: auto;
+
+  ul {
+    width: max-content;
+    margin: auto;
+  }
+}
 .card-img-top {
   width: 96%;
   height: 100%;
-  padding-left: 4px;
+  padding-left: 15px;
   padding-right: 4px;
   padding-top: 9px;
   border-radius: 4%;
@@ -165,10 +221,10 @@
 }
 .footer_background_all {
   width: 100%;
-  min-height: 177px;
+  min-height: 150px;
   padding: var(--space-20) 0;
   color: white;
-  background-image: url(https://www.thecoffeehouse.com/_nuxt/img/footer-desktop.727f3a2.png);
+  background:#000;
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -186,12 +242,13 @@
   background-color: #000;
   color: white;
   min-height: 80px;
+  width: 100%;
+  overflow: hidden;
 }
 .footer_banner {
-  max-height: 620px;
+  // max-height: 620px;
   &_img {
-    max-height: 620px;
-    max-width: 1519px;
+    width: 100%;
   }
 }
 .news_text_content_header {
@@ -199,7 +256,7 @@
   font-size: 27px;
 }
 .news_center_image {
-  height: 90%;
+  height: 9em;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -254,26 +311,26 @@
   }
 }
 .modal_card-product-note-item {
-  background-color: #f5f5f5;
+  background-color: #f5f5f500;
   border: 1px solid #ededee;
   height: 42px;
   border-radius: 5px;
-  width: 380px;
+  width: 100%;
   padding-right: -25px;
   margin-left: -3px;
 }
 .modal_card-product-text {
   flex: 1;
   border: none;
-  width: 336px;
-  font-size: 1rem;
+  width: 86%;
+  font-size: 0.8rem;
   outline: none;
   padding: 1rem;
   height: 100%;
   color: #666666;
 }
 .modal_card-product-img {
-  width: 20px;
+  width: 8%;
   height: 20px;
   margin: 12px 11px;
 }
@@ -477,7 +534,7 @@ input[type="radio"]:checked {
 }
 .Product_page_big_img {
   width: 100%;
-  height: auto;
+  height:300px;
 }
 .Product_page_content {
   margin-top: 1rem;
@@ -916,4 +973,142 @@ input[type="radio"]:checked {
 }
 .nav-link text-white active {
   text-decoration: underline!important;
+}
+.user_login {
+  position: relative;
+  top: 21px;
+  right: 22px
+}
+.line-of-dropdown-content{
+  margin-top: 0.6rem;
+  margin-bottom: 0.4rem;
+  border: 0;
+  border-top: 1px solid rgba(0,0,0,.1);
+  width: 85%;
+}
+.button-read-continue{
+  border-radius: 20px;
+    color: white;
+    background: orange;
+    margin-top: 0.875em;
+}
+.card-body-news{
+  padding: 1em;
+}
+.img-footer_of_footer{
+  float: right;
+}
+.logo-collapse{
+  margin-top: 20px;
+ 
+
+  &-img{
+    width: 64%;
+    height: 100%;
+  }
+}
+.btn-plus-addproc{
+    background: rgb(250, 140, 22);
+    border-radius: 100%;
+    width: 25%;
+    margin-left: 140px;
+    margin-top: -70px;
+}
+.logo-header{
+  padding-left: 140px;
+}
+.open-address-modal{
+  width: 268px;
+  border-Radius: 30px;
+  background: rgba(238,139,29,1);
+  margin-left: 40px;
+}
+// Responsive smartphone 
+@media only screen and (max-width:739px) {
+  .card-product-option {
+   
+    width: 109.3%;
+   
+}
+  .size-product-row{
+    font-size: 0.8rem;
+  }
+  .modal_card-product-text {
+   
+    width: 83.3%;
+  }
+  .open-address-modal{
+ 
+    margin: auto;
+  }
+  .card-title{
+    // color:red;
+    font-size : 0.75em;
+  }
+  .news_center_image {
+    height: 7.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .text-read-continue{
+    display: block;
+    font-size:0.5em ;
+  }
+  .button-read-continue{
+    border-radius: 20px;
+    color: white;
+    background: orange;
+    margin-top: 0.55em!important;
+  }
+  .img-footer_of_footer{
+    height: 50%;
+  }
+  .logo-collapse{
+    padding-right: 0px;
+
+    &-img{
+      width: 100%;
+      height: 50%;
+    }
+  }
+  .btn-plus-addproc {
+    background: #fa8c16;
+    border-radius: 100%;
+    width: 30%;
+    margin-left: auto;
+    margin-top: -40px;
+    /* margin-right: auto; */
+    /* margin: auto; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.collapse-footer-container{
+  overflow-x: auto;
+}
+.collapse-footer-row{
+  width: max-content;
+}
+.footer_background_all {
+  min-height: 100px;
+}
+.logo-header{
+  margin: auto;
+  padding-left: 0px;
+}
+
+
+}
+//responsive for tablet
+@media only screen and (min-width:740px) and (max-width:992px){
+  .btn-plus-addproc{
+   
+    margin-left: 120px;
+    margin-top: -70px;
+}
+.open-address-modal{
+ 
+    margin: auto;
+  }
 }
