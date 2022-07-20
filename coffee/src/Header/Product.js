@@ -26,8 +26,6 @@ const Product = () => {
   const [posts, setPosts] = useState([]);
 
   // lấy dữ liệu từ api bằng axios
-
-
   useEffect(() => {
     let promise = Axios({
       url: 'https://coffeepha.ml/api/v1/product',
