@@ -53,6 +53,7 @@ export default function CartOrder() {
     const moveAll = async () => {
         localStorage.removeItem('productOrder')
         await setListOrder([]);
+        navigate('/list-product', { replace: true });
 
 
     }
@@ -85,12 +86,17 @@ export default function CartOrder() {
       
           }).then((res) => {
             console.log(res.data)
+            if(res.data){
+                navigate('/list-product', { replace: true });
+                moveAll()
+
+            }
            
       
       
       
           });
-        // console.log(infoOrder)
+
         
       
     }
