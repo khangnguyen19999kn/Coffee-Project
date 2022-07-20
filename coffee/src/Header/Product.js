@@ -30,7 +30,7 @@ const Product = () => {
 
   useEffect(() => {
     let promise = Axios({
-      url: 'http://34.229.140.188:9696/api/v1/product',
+      url: 'https://coffeepha.ml/api/v1/product',
       // type: 'json',
       method: 'GET',
       // headers : { 'Access-Control-Allow-Origin' : '*','Access-Control-Allow-Headers' : '*'}
