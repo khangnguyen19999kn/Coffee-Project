@@ -47,7 +47,7 @@ export default function ModalRegister({isModalVisible,showModal,handleCancel,whe
         })
         
         let promise = Axios({
-          url: 'http://localhost:9696/api/v1/users/register',
+          url: 'https://coffeepha.ml/api/v1/users/register',
           method: 'POST',
           data: { ...infoUser, name: infoUser.fullname, phoneNumber: infoUser.phone,level:"Client" }
     
