@@ -65,7 +65,7 @@ export const CartProvider = (props) => {
                 marginTop: "10px",
                 marginRight: "-15px",
               }}
-              src={"./Login.70dc3d8.png"}
+              src={"/Login.70dc3d8.png"}
               alt="shopping"
             ></img>
           </a>

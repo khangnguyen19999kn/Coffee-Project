@@ -62,7 +62,7 @@ export default function Header() {
         >
           <img
             style={{ height: "14px", width: "170px" }}
-            src={"./logo.174bdfd.png"}
+            src={"/logo.174bdfd.png"}
             alt="logo"
           ></img>
         </NavLink>
@@ -77,7 +77,7 @@ export default function Header() {
             <div className="container__panel__logo">
               <img
                 // style={{height:'40px'}}
-                src={"./Delivery2.png"}
+                src={"/Delivery2.png"}
                 alt="logo"
               ></img>
             </div>
@@ -144,7 +144,7 @@ export default function Header() {
                   >
                     <img
                       style={{ width: "72px", height: "65px" }}
-                      src={"./Carticon.373916c.png"}
+                      src={"/Carticon.373916c.png"}
                       alt="shopping"
                     ></img>
 

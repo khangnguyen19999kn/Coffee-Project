@@ -13,6 +13,7 @@ export default function PageProduct(props) {
   
     const [posts, setPosts] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
+    const [img,setImg] = useState("")
 
 
     // const onSubmit = data => {
@@ -34,6 +35,9 @@ export default function PageProduct(props) {
         })
         promise.then((result) => {
             console.log('Lấy dữ liệu thành công')
+            setImg(result.data.img.slice(1))
+            
+
            
 
 
@@ -46,6 +50,7 @@ export default function PageProduct(props) {
 
 
     }, []);
+   
     const value = useContext(PageProductContext);
     let quantity = value.quantity;
     let resultPrice = (totalPrice === 0 ? parseInt(posts.price):totalPrice ) * value.quantity;
@@ -146,9 +151,10 @@ export default function PageProduct(props) {
                         <div style={{ maxWidth: '56.25rem', boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px', borderRadius: '12px' }} className="container ">
                             <div style={{ padding: '20px 15px' }} className="row">
                                 <div className="col-5">
-                                    <img src={posts.img} className="Product_page_big_img" alt="">
+                                    {/* <img src={posts.img} className="Product_page_big_img" alt="">
 
-                                    </img>
+                                    </img> */}
+                                    <img alt="" className="Product_page_big_img" src={window.location.origin+img} />
                                     <p className="Product_page_content">{posts.introduce}</p>
                                 </div>
                                 <div className="col-7">

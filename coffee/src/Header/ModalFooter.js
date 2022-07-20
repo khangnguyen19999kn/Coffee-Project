@@ -5,7 +5,7 @@ export default class ModalFooter extends Component {
         return (
             <div>
                 <div className="footer_banner">
-                    <img className="footer_banner_img" src="./FooterBanner.png">
+                    <img className="footer_banner_img" src="/FooterBanner.png">
                     </img>
 
                 </div>

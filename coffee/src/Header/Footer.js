@@ -11,7 +11,7 @@ export default class extends Component {
                 <div className="container collapse-footer-container">
                     <div className="row collapse-footer-row">
                         <div className="col-2  logo-collapse">
-                            <img className='logo-collapse-img' src="./logo-footer.72c86fc.png">
+                            <img className='logo-collapse-img' src="/logo-footer.72c86fc.png">
                             </img>
                         </div>
                         <div className="col-2">
@@ -98,7 +98,7 @@ export default class extends Component {
                         </div>
                         <div className="col-3 pt-3">
                             <a href="http://online.gov.vn/Home/WebDetails/48042" target="_blank" style={{targetNew:'tab'}}>
-                                <img className='img-footer_of_footer' src="./active.4cba64f.png" alt="Đã cấp phép">
+                                <img className='img-footer_of_footer' src="/active.4cba64f.png" alt="Đã cấp phép">
                                 </img>
                             </a>
 
