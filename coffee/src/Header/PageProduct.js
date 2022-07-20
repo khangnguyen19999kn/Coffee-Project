@@ -23,7 +23,7 @@ export default function PageProduct(props) {
    
     useEffect(() => {
         let promise = Axios({
-            url: `http://localhost:9696/api/v1/product/${id}`,
+            url: `https://coffeepha.ml/api/v1/product/${id}`,
 
             method: 'GET',
 

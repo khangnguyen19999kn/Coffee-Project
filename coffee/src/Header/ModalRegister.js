@@ -71,7 +71,7 @@ export default function ModalRegister({isModalVisible,showModal,handleCancel,whe
       const handleBlur = (e) => {
        
         Axios({
-          url: 'http://localhost:9696/api/v1/users/checkPhone',
+          url: 'https://coffeepha.ml/api/v1/users/checkPhone',
           method: 'POST',
           data: { phoneNumber: e.target.value }
     

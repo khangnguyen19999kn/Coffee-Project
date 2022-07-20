@@ -74,7 +74,7 @@ export default function CartOrder() {
        
         const infoOrder = {...data,address,listOrder};
         Axios({
-            url: 'http://localhost:9696/api/v1/cart',
+            url: 'https://coffeepha.ml/api/v1/cart',
             method: 'POST',
             data: { ...infoOrder}
             

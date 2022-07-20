@@ -85,7 +85,7 @@ export const CartProvider = (props) => {
       // const userName="";
       // console.log(_token)
       Axios({
-        url: 'http://localhost:9696/api/v1/users/decode',
+        url: 'https://coffeepha.ml/api/v1/users/decode',
         method: 'POST',
         data: {token: _token }
   
