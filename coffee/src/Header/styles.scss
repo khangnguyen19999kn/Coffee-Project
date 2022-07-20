@@ -1023,6 +1023,9 @@ input[type="radio"]:checked {
   background: rgba(238,139,29,1);
   margin-left: 40px;
 }
+.ant-collapse-header{
+  color: gray
+}
 // Responsive smartphone 
 @media only screen and (max-width:739px) {
   .card-product-option {
@@ -1113,7 +1116,5 @@ input[type="radio"]:checked {
     margin-top: 0px;
 
   }
-  .ant-collapse-header{
-    color: gray
-  }
+
 }
