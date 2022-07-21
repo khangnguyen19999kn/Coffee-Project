@@ -1,4 +1,4 @@
-import React, { useState, useForm } from 'react'
+import React, { useState, useEffect } from 'react'
 import { CartContext } from '../_Context/CartContext'
 import { Modal, Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -21,6 +21,8 @@ export const CartProvider = (props) => {
   const [cookies,setCookie,removeCookie] = useCookies(['token']);
   const [userName,setUserName]=useState('');
   const [infoUser,setInforUser]=useState({});
+  const { token: _token } = cookies;
+
 
   const addToCart = (_quantity) => {
     const newValue = quantity + _quantity
@@ -40,11 +42,58 @@ export const CartProvider = (props) => {
   }
   const logOut = ()=>{
     removeCookie("token");
-    console.log('abc')
+   
+  }
+
+
+
+
+  useEffect(() => {
+    if(_token){
+      decodeToken()
+      setTimeout(
+        () => logOut(), 
+        60000
+      );
+    }
+    
+
+  
+
+
+
+  }, [_token]);
+ 
+
+  const decodeToken = ()=>{
+    let promise =Axios({
+      url: 'https://coffeepha.ml/api/v1/users/decode',
+      method: 'POST',
+      data: {token: _token }
+
+
+    });
+    promise.catch((err) => {
+      console.log(err);
+
+
+    })
+    promise.then((res) => {
+
+      
+
+        const {name} = res.data;
+        const _userName = name.split(' ')
+        
+        setUserName(_userName[_userName.length-1]);
+        setInforUser(res.data);
+        console.log(userName)
+
+    });
   }
   // test change token 
   const checkToken = () => {
-    const { token: _token } = cookies;
+    
  
 
     if (!_token) {
@@ -82,37 +131,8 @@ export const CartProvider = (props) => {
       )
     }
     else {
-      // const userName="";
-      // console.log(_token)
-      Axios({
-        url: 'https://coffeepha.ml/api/v1/users/decode',
-        method: 'POST',
-        data: {token: _token }
-  
-  
-      }).catch((err) => {
-        console.log(err);
-  
-  
-      }).then((res) => {
-  
-        
-  
-          const {name} = res.data;
-          const _userName = name.split(' ')
-          
-          setUserName(_userName[_userName.length-1]);
-          setInforUser(res.data);
-          // console.log(res.data)
-          
-
-  
-        
-  
-  
-  
-      });
-      // console.log(userName)
+      
+    
       return (
         <li className="nav-item dropdown">
           <a
@@ -128,7 +148,8 @@ export const CartProvider = (props) => {
               {userName.toUpperCase()}
 
             </span>
-            <FontAwesomeIcon style={{ position: 'relative', top: '20px', right: '7px' }} icon="fa-solid fa-angle-down" />
+            <i style={{ position: 'relative', top: '20px', right: '7px' }} class='bx bx-chevron-down'></i>
+            {/* <FontAwesomeIcon style={{ position: 'relative', top: '20px', right: '7px' }} icon="fa-solid fa-angle-down" /> */}
           </a>
           <div className="dropdown-menu" aria-labelledby="navbarDropdown">
             <div className="dropdown-content">
@@ -151,13 +172,20 @@ export const CartProvider = (props) => {
       )
     }
   }
+  // check token ver mobile
+  const checkTokenMobile =()=>{
+    if (!_token) {
+      return "#ModalLogin"
+    }
+    else return "#ModalUserMobile"
+  }
 
 
 
 
 
   return (
-    <CartContext.Provider value={{ quantity, addToCart, address, setDeliveryAddress, DeleteInCart, changeToken, checkToken,infoUser }}>
+    <CartContext.Provider value={{ quantity, addToCart, address, setDeliveryAddress, DeleteInCart, changeToken, checkToken,checkTokenMobile,decodeToken,userName,infoUser}}>
       {props.children}
     </CartContext.Provider>
   )

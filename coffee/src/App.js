@@ -23,6 +23,7 @@ import data from "./Data/dataProduct.json";
 import TestDetail from './Header/TestDetail';
 import { PageProductProvider } from './Context/Provider/PageProductProvider';
 import DetailNews from './page/News/DetailNews';
+import Menutest from './Header/Menutest';
 
 
 
@@ -33,7 +34,8 @@ function App() {
     <BrowserRouter>
     <CartProvider>
     <PageProductProvider>
-      <Header/>
+      {/* <Header/> */}
+      <Menutest/>
       <Routes>
         <Route exact path='/home' element={<Home/>} />
         <Route exact path='/' element={<Home/>} />
