@@ -8,6 +8,7 @@ import CartOrder from "./CartOrder";
 import { CartContext } from "../Context/_Context/CartContext";
 import { NavLink } from 'react-router-dom'
 import ModalUserMobile from "./ModalUserMobile";
+import { pink } from "@mui/material/colors";
 
 
 export default function Menutest() {
@@ -27,8 +28,10 @@ export default function Menutest() {
 
     }
     let activeStyle = {
-        textDecoration: "underline"
+        textDecoration: "underline",
+        color:"pink"
     };
+
     return (
         <div>
             <BrowserView>
@@ -200,19 +203,19 @@ export default function Menutest() {
                    
                 </nav>
                 <nav className='nav'>
-                    <a href='' className='nav-link'>
+                    <NavLink style={({ isActive }) =>isActive ? activeStyle : undefined}  to="/list-product" className='nav-link'>
                         <i class='bx bx-coffee-togo nav-icon'></i>
                         <span className='nav-link-content'>Đặt hàng</span>
-                    </a>
-                    <a href='' className='nav-link'>
+                    </NavLink>
+                    <NavLink style={({ isActive }) =>isActive ? activeStyle : undefined} to="/news" className='nav-link'>
                         <i class='bx bxs-news nav-icon' ></i>
                         <span className='nav-link-content'>Tin tức</span>
-                    </a>
-                    <a href='' className='nav-link'>
+                    </NavLink>
+                    <NavLink style={({ isActive }) =>isActive ? activeStyle : undefined} to="/store" className='nav-link'>
                         <i class='bx bxs-store-alt nav-icon' ></i>
                         <span className='nav-link-content'>Cửa hàng</span>
-                    </a>
-                    <a href='' className='nav-link' data-toggle="modal" data-target={checkTokenMobile()} >
+                    </NavLink>
+                    <a  className='nav-link' data-toggle="modal" data-target={checkTokenMobile()} >
                         <i class='bx bx-user'></i>
                         <span className='nav-link-content'>Tài khoản</span>
                     </a>
