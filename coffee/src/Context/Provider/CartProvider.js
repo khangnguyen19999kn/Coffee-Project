@@ -185,7 +185,7 @@ export const CartProvider = (props) => {
 
 
   return (
-    <CartContext.Provider value={{ quantity, addToCart, address, setDeliveryAddress, DeleteInCart, changeToken, checkToken,checkTokenMobile,decodeToken,userName,infoUser}}>
+    <CartContext.Provider value={{ quantity, addToCart, address, setDeliveryAddress, DeleteInCart, changeToken, checkToken,checkTokenMobile,decodeToken,userName,infoUser,setQuantity}}>
       {props.children}
     </CartContext.Provider>
   )

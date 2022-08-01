@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from '@hookform/resolvers/yup';
 import Axios from 'axios'
-
+import Swal from 'sweetalert2'
 
 
 export default function CartOrder() {
@@ -70,7 +70,7 @@ export default function CartOrder() {
 
         // const bill ={...}
     }
-    const onSubmit = data =>{
+    const onSubmit =  data =>{
         const address =localStorage.getItem('address');
        
         const infoOrder = {...data,address,listOrder};
@@ -87,8 +87,21 @@ export default function CartOrder() {
           }).then((res) => {
             console.log(res.data)
             if(res.data){
-                navigate('/list-product', { replace: true });
-                moveAll()
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Bạn đã đặt hàng thành công',
+                    
+                    timer: 2000
+                  })
+                setTimeout(
+                    () => {
+                    navigate('/list-product', { replace: true })
+                     moveAll()
+                }, 
+                    
+                    2000
+                  );
+           
 
             }
            
@@ -121,7 +134,7 @@ export default function CartOrder() {
                         <CartContext.Consumer>
                             {({ DeleteInCart }) =>
 
-                                <p onClick={() => { moveItem(index); DeleteInCart(listOrder) }} className="tch-order-delete-item">Xóa{index}</p>
+                                <p onClick={() => { moveItem(index); DeleteInCart(listOrder) }} className="tch-order-delete-item">Xóa</p>
 
                             }
 
@@ -170,20 +183,22 @@ export default function CartOrder() {
 
                                     </div>
                                 </div>
+                                      
+                                        
                                 
                                     <div className='cart_order_input_info'>
                                         <div className='cart_order_input_info_fullname'>
-                                            <InputField inputProps={"123"} onChange={(e)=>{console.log(e.target.value)}} control={control} name="fullname" label="Họ và tên" />
+                                            <InputField control={control} name="fullname"   label="Họ và tên" />
                                         </div>
                                         <div className='cart_order_input_info_phoneNumber'>
-                                            <InputField control={control} name="phone" label="Số điện thoại" />
+                                            <InputField control={control} name="phone"  label="Số điện thoại" />
                                         </div>
                                         <div className='cart_order_input_info_note'>
                                             <InputField control={control} name="HuongDan" label="Thêm hướng dẫn giao hàng" />
 
                                         </div>
                                     </div>
-
+                               
                           
 
                                 <h5 class="cart_checkout-box__delivery">Phương thức thanh toán</h5>
