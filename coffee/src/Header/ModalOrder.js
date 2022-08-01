@@ -15,25 +15,25 @@ function ModalOrder({ item, index, styleMiniusQuantity, changeQuantity, quantity
     }
     const [totalPrice, setTotalPrice] = useState(0);
     // let totalPrice = parseInt((item.price.split('đ').join(''))) * quantity;
-    let resultPrice = (totalPrice === 0 ? parseInt(item.price):totalPrice ) * quantity;
+    let resultPrice = (totalPrice === 0 ? parseInt(item.price.replace(".","").replace("đ","")):totalPrice ) * quantity;
     const selectSize = (size) => {
 
 
 
         if (size === 'big') {
 
-            let newPrice = parseInt(item.price) + 10000;
+            let newPrice = parseInt(item.price.replace(".","").replace("đ","")) + 10000;
             setTotalPrice(newPrice)
 
 
         }
         else if (size === 'medium') {
 
-            let newPrice = parseInt(item.price) + 6000;
+            let newPrice = parseInt(item.price.replace(".","").replace("đ","")) + 6000;
             setTotalPrice(newPrice)
 
         }
-        else setTotalPrice(parseInt(item.price))
+        else setTotalPrice(parseInt(item.price.replace(".","").replace("đ","")))
         
 
     }
@@ -247,7 +247,7 @@ function ModalOrder({ item, index, styleMiniusQuantity, changeQuantity, quantity
                                     <button type="submit" class="btn_modal_add"
                                         onClick={() => addToCart(quantity)}
                                     >
-                                        {(totalPrice === 0 ? parseInt(item.price):totalPrice ) * quantity}đ -Thêm vào giỏ hàng
+                                        {((totalPrice === 0 ? parseInt(item.price.replace(".","").replace("đ","")):totalPrice ) * quantity).toLocaleString()}đ -Thêm vào giỏ hàng
                                     </button>}
                             </CartContext.Consumer>
                         </div>

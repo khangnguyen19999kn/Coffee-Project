@@ -24,6 +24,7 @@ import TestDetail from './Header/TestDetail';
 import { PageProductProvider } from './Context/Provider/PageProductProvider';
 import DetailNews from './page/News/DetailNews';
 import Menutest from './Header/Menutest';
+import PageHistoryBuy from './page/HistoryBuy/PageHistoryBuy';
 
 
 
@@ -43,7 +44,7 @@ function App() {
         <Route exact path='/list-product' element={<ListProduct/>} />
         <Route exact path='/store' element={<StorePage/>} />
         <Route exact path='/checkout' element={<CheckOut/>} />
-
+        <Route exact path='/history' element={<PageHistoryBuy/>}  />
         {/* <Route exact path='/product/:id' element={<TestDetail/>} /> */}
         <Route exact path='/news/1' element={<DetailNews/>} />
         <Route exact path='/product/:id' element={<PageProduct/>} />

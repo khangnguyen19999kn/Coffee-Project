@@ -14,6 +14,7 @@ export default function PageProduct(props) {
     const [posts, setPosts] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
     const [img,setImg] = useState("")
+    const [price,setPrice] = useState();
 
 
     // const onSubmit = data => {
@@ -42,6 +43,7 @@ export default function PageProduct(props) {
 
 
             setPosts(result.data);
+            setPrice(result.data.price.replace(".","").replace("đ",""));
 
 
 
@@ -53,7 +55,8 @@ export default function PageProduct(props) {
    
     const value = useContext(PageProductContext);
     let quantity = value.quantity;
-    let resultPrice = (totalPrice === 0 ? parseInt(posts.price):totalPrice ) * value.quantity;
+  
+    let resultPrice = (totalPrice === 0 ? parseInt(price):totalPrice ) * value.quantity;
     const initialValues = {
         id: posts.id,
         name: posts.name,
@@ -127,18 +130,18 @@ export default function PageProduct(props) {
 
         if (size === 'big') {
 
-            let newPrice = parseInt(posts.price) + 10000;
+            let newPrice = parseInt(price) + 10000;
             setTotalPrice(newPrice)
 
 
         }
         else if (size === 'medium') {
 
-            let newPrice = parseInt(posts.price) + 6000;
+            let newPrice = parseInt(price) + 6000;
             setTotalPrice(newPrice)
 
         }
-        else setTotalPrice(parseInt(posts.price))
+        else setTotalPrice(parseInt(price))
         
 
     }
@@ -149,15 +152,15 @@ export default function PageProduct(props) {
                 {({ styleMiniusQuantity, changeQuantity, quantity }) =>
                     <form style={{ marginTop: '8rem', marginBottom: '4rem' }} onSubmit={handleSubmit(onSubmitForm)}>
                         <div style={{ maxWidth: '56.25rem', boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px', borderRadius: '12px' }} className="container ">
-                            <div style={{ padding: '20px 15px' }} className="row">
-                                <div className="col-5">
+                            <div style={{ padding: '20px 15px' }} className="row product-content">
+                                <div className="col-5 product-info">
                                     {/* <img src={posts.img} className="Product_page_big_img" alt="">
 
                                     </img> */}
                                     <img alt="" className="Product_page_big_img" src={window.location.origin+img} />
                                     <p className="Product_page_content">{posts.introduce}</p>
                                 </div>
-                                <div className="col-7">
+                                <div className="col-7 product-choise">
                                     <h2>{posts.name}</h2>
                                     <div className="product_page_price_quantity">
                                         <span className="product_page_price">

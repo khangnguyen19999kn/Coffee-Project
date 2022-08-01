@@ -3,85 +3,65 @@
         "id":1,
         "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
         "imgHeader":"./NewsPic/appnews--2--3.jpg",
-        "content":{}
+        "content":""
 
     },
     {
         "id":2,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
+        "header":"CÁCH NHẬN BIẾT HƯƠNG VỊ CÀ PHÊ ROBUSTA NGUYÊN CHẤT ",
+        "imgHeader":"./NewsPic/1.png",
         "content":""
 
     },
     {
         "id":3,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
+        "header":"BẬT MÍ NHIỆT ĐỘ LÝ TƯỞNG ĐỂ PHA CÀ PHÊ NGON",
+        "imgHeader":"./NewsPic/2.png",
         "content":""
 
     },
     {
         "id":4,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
+        "header":"CÁCH PHA CÀ PHÊ PHIN THƠM NGON TRÒN VỊ",
+        "imgHeader":"./NewsPic/3.png",
         "content":""
 
     },
     {
         "id":5,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
+        "header":"10 LỢI ÍCH KHÔNG NGỜ CỦA TRÀ HOA HIBISCUS",
+        "imgHeader":"./NewsPic/4.png",
         "content":""
 
     },
     {
         "id":6,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
+        "header":"CHAI FRESH LUÔN BÊN BẠN TRONG MỌI KHOẢNH KHẮC",
+        "imgHeader":"./NewsPic/5.png",
         "content":""
 
     },
     {
         "id":7,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
+        "header":"QUÁN CÀ PHÊ LÝ TƯỞNG ĐỂ HỘI HỌP BẠN BÈ MÙA TẾT NÀY",
+        "imgHeader":"./NewsPic/6.png",
         "content":""
 
     },
     {
         "id":8,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
+        "header":"LỄ TÌNH NHÂN, CÙNG CRUSH ĐI ĐÂU?",
+        "imgHeader":"./NewsPic/7.png",
         "content":""
 
     },
     {
         "id":9,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
-        "content":""
-
-    },
-    {
-        "id":10,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
-        "content":""
-
-    },
-    {
-        "id":11,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
-        "content":""
-
-    },
-    {
-        "id":12,
-        "header":"TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH",
-        "imgHeader":"./NewsPic/appnews--2--3.jpg",
+        "header":"TẠI SAO CÀ PHÊ CÓ VỊ CHUA?",
+        "imgHeader":"./NewsPic/8.png",
         "content":""
 
     }
+    
 
 ]

@@ -21,9 +21,6 @@ export default function Menutest() {
         borderRadius: '100%',
         background: 'red',
         minWidth: '22px',
-        position: 'relative',
-        right: '30px',
-        top: '1px',
         display: 'none'
 
     }
@@ -138,7 +135,7 @@ export default function Menutest() {
                                                     alt="shopping"
                                                 ></img>
 
-                                                <div style={styleOfShoppingcart} class={quantity > 0 ? 'd-flex justify-content-center' : 'justify-content-center'}>
+                                                <div style={styleOfShoppingcart} class={quantity > 0 ? 'd-flex justify-content-center card-quantity' : 'justify-content-center card-quantity'}>
                                                     <span>{quantity}</span>
 
                                                 </div>

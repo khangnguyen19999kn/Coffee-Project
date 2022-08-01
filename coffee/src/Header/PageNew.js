@@ -5,7 +5,7 @@ export default function PageNew() {
         <div>
             <section>
                 <div className="container-fluid page_news_custom">
-                    <h2>Tiêu để nằm ở đây</h2>
+                    <h2>TEAROMA CRUSH NHÀ: TỰ TIN SỐNG TRẺ BỪNG PHONG CÁCH</h2>
                     <div data-v-ae50cbb8>
                         <p>
                             <em>Một món quà ấm áp mà The Coffee House đặc biệt dành tặng bạn cho mùa lễ hội năm nay. Một chút đắng nhẹ nhàng, cay nhẹ nồng ấm và cả ngọt ngào của Festive Collection sẽ giúp bạn có những khoảnh khắc tuyệt vời vào những ngày cuối năm, cùng nhau nhìn lại một năm đã qua và bắt đầu một năm mới tràn ngập hạnh phúc.

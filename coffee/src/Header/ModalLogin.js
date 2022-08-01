@@ -55,6 +55,12 @@ const whenSubmit = () => {
 
     }).catch((err) => {
       console.log(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'Lỗi đăng nhập',
+        text: 'Bạn đã nhập sai tài khoản hoặc mật khẩu vui lòng nhập lại',
+        
+      })
      
 
     }).then((res) => {
@@ -87,7 +93,7 @@ const whenSubmit = () => {
             className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div style={{ padding: '0px' }} className="modal-header">
-                <h5 style={{ width: '100%' }} className="modal-title" id="exampleModalLongTitle"><img className='Modal_login_img_top' src="./thumbnail-login-pop-up.e10d0dd.png" alt=""></img></h5>
+                <h5 style={{ width: '100%' }} className="modal-title" id="exampleModalLongTitle"><img className='Modal_login_img_top' src="/thumbnail-login-pop-up.e10d0dd.png" alt=""></img></h5>
 
 
               </div>
@@ -95,7 +101,7 @@ const whenSubmit = () => {
                 <div class="d-flex flex-column ">
                   <div className="Modal_Body_Welcome">Chào mừng bạn đến với</div>
 
-                  <img className="Modal_Body_img_logo" src='./ModalLoginLogo.png'></img>
+                  <img className="Modal_Body_img_logo" src='/ModalLoginLogo.png'></img>
                   <div className="Modal_Body_cover-input_phoneNumber d-flex align-items-center">
                     <div className="Modal_Body_region-code_phoneNumber">
                       <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjUiIHZpZXdCb3g9IjAgMCAyNCAyNSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDI0LjM2NTdDMTguNjI3NCAyNC4zNjU3IDI0IDE4Ljk5MzEgMjQgMTIuMzY1N0MyNCA1LjczODMxIDE4LjYyNzQgMC4zNjU3MjMgMTIgMC4zNjU3MjNDNS4zNzI1OCAwLjM2NTcyMyAwIDUuNzM4MzEgMCAxMi4zNjU3QzAgMTguOTkzMSA1LjM3MjU4IDI0LjM2NTcgMTIgMjQuMzY1N1oiIGZpbGw9IiNGNTIyMkQiLz4KPHBhdGggZD0iTTEyLjAwMTYgMTUuMTY1OEwxNS45NjE2IDE3Ljk2NThMMTQuNDgxNiAxMy40MDU4TDE4LjQwMTYgMTAuNDQ1OEgxMy41MjE2TDEyLjAwMTYgNS45NjU4MkwxMC41MjE2IDEwLjQ0NThINS42MDE1Nkw5LjUyMTU2IDEzLjQwNThMOC4wNDE1NiAxNy45NjU4TDEyLjAwMTYgMTUuMTY1OFoiIGZpbGw9IiNGRkU2MkUiLz4KPC9zdmc+Cg==" alt />

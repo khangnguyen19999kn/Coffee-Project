@@ -16,7 +16,7 @@ export default function Store() {
         let listDataFilter;
         if (input === '') {
             listDataFilter = dataStore.filter(
-                (store) => (store.maVung === maVung )
+                (store) => (store.maVung === maVung)
             );
 
         } else listDataFilter = dataStore.filter(
@@ -43,7 +43,7 @@ export default function Store() {
         }
 
         refInput.current = setTimeout(() => {
-            
+
             setInput(event.target.value)
         }, 900)
     }
@@ -63,16 +63,19 @@ export default function Store() {
 
         const listStore = filterData().map((store, index) => {
             return (
-                <div className='col-6 card_store_item'>
-                    <div class="d-flex flex-row">
-                        <img src={store.img} alt="" className='store_item'></img>
-                        <div style={{ marginLeft: '16px' }} class="d-flex flex-column ">
-                            <p class="store-info-item store-trademark">THE COFFEE HOUSE</p>
-                            <p class="store-info-item  store-address">{store.address}</p>
-                            <p class="store-info-item  store-distance">Cách đây 0.5km</p>
-                            <div class="store-view-link">
-                                <span class="store-view-map">Xem bản đồ</span>
-                                <span class="store-view-detail">Chi tiết cửa hàng </span>
+                <div className='col-12 col-md-12 col-lg-6 col-xl-6 '>
+                    <div className="card_store_item">
+
+                        <div class="d-flex flex-row">
+                            <img src={store.img} alt="" className='store_item'></img>
+                            <div style={{ marginLeft: '16px' }} class="d-flex flex-column ">
+                                <p class="store-info-item store-trademark">THE COFFEE HOUSE</p>
+                                <p class="store-info-item  store-address">{store.address}</p>
+                                <p class="store-info-item  store-distance">Cách đây 0.5km</p>
+                                <div class="store-view-link">
+                                    <span class="store-view-map">Xem bản đồ</span>
+                                    <span class="store-view-detail">Chi tiết cửa hàng </span>
+                                </div>
                             </div>
                         </div>
                     </div>

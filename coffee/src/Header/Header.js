@@ -135,11 +135,11 @@ export default function Header() {
               <ul className="navbar-nav mr-auto ">
                 {checkToken()}
 
-                <li className="nav-item ">
+                <li className="nav-item cart">
 
                   <NavLink
                     style={{ paddingLeft: "0px" }}
-                    className="nav-link text-white  "
+                    className="nav-link text-white"
                     to={quantity > 0 ? "/checkout" : "/list-product"}
                   >
                     <img
@@ -148,7 +148,7 @@ export default function Header() {
                       alt="shopping"
                     ></img>
 
-                    <div style={styleOfShoppingcart} class={quantity > 0 ? 'd-flex justify-content-center' : 'justify-content-center'}>
+                    <div style={styleOfShoppingcart} className={quantity > 0 ? 'd-flex justify-content-center card-quantity' : 'justify-content-center card-quantity'}>
                       <span>{quantity}</span>
 
                     </div>
