@@ -47,7 +47,7 @@ export default function ModalRegister({isModalVisible,showModal,handleCancel,whe
         })
         
         let promise = Axios({
-          url: 'https://coffeepha.ml/api/v1/users/register',
+          url: 'https://api-coffee-phen.herokuapp.com/api/v1/users/register',
           method: 'POST',
           data: { ...infoUser, name: infoUser.fullname, phoneNumber: infoUser.phone,level:"Client" }
     
@@ -71,7 +71,7 @@ export default function ModalRegister({isModalVisible,showModal,handleCancel,whe
       const handleBlur = (e) => {
        
         Axios({
-          url: 'https://coffeepha.ml/api/v1/users/checkPhone',
+          url: 'https://api-coffee-phen.herokuapp.com/api/v1/users/checkPhone',
           method: 'POST',
           data: { phoneNumber: e.target.value }
     

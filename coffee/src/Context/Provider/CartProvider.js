@@ -67,7 +67,7 @@ export const CartProvider = (props) => {
 
   const decodeToken = ()=>{
     let promise =Axios({
-      url: 'https://coffeepha.ml/api/v1/users/decode',
+      url: 'https://api-coffee-phen.herokuapp.com/api/v1/users/decode',
       method: 'POST',
       data: {token: _token }
 

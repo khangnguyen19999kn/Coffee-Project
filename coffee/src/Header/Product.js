@@ -28,7 +28,7 @@ const Product = () => {
   // lấy dữ liệu từ api bằng axios
   useEffect(() => {
     let promise = Axios({
-      url: 'https://coffeepha.ml/api/v1/product',
+      url: 'https://api-coffee-phen.herokuapp.com/api/v1/product',
       // type: 'json',
       method: 'GET',
       // headers : { 'Access-Control-Allow-Origin' : '*','Access-Control-Allow-Headers' : '*'}

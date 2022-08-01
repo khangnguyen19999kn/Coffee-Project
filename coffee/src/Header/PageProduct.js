@@ -24,7 +24,7 @@ export default function PageProduct(props) {
    
     useEffect(() => {
         let promise = Axios({
-            url: `https://coffeepha.ml/api/v1/product/${id}`,
+            url: `https://api-coffee-phen.herokuapp.com/api/v1/product/${id}`,
 
             method: 'GET',
 

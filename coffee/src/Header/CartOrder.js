@@ -75,7 +75,7 @@ export default function CartOrder() {
        
         const infoOrder = {...data,address,listOrder};
         Axios({
-            url: 'https://coffeepha.ml/api/v1/cart',
+            url: 'https://api-coffee-phen.herokuapp.com/api/v1/cart',
             method: 'POST',
             data: { ...infoOrder}
             
@@ -191,7 +191,7 @@ export default function CartOrder() {
                                     <div style={{ alignItems: 'start' }} class="d-flex flex-column justify-content-start">
                                         <div class="p-2 cart_pay money">
                                             <div className=" custom-control card-product-option-item custom-radio mb-0">
-                                                <input type="radio" value="money" id={'Money'} name="pay_order" className="custom-control-input" />
+                                                <input type="radio" value="money" id={'Money'} name="pay_order_money" className="custom-control-input" />
                                                 <label htmlFor={`Money`} className="custom-control-label card-cart-option-label  tch-custom-radio">
                                                     <div className="card-cart-option-value">
                                                         <span className="text card-cart-option-money">
@@ -205,7 +205,7 @@ export default function CartOrder() {
                                         </div>
                                         <div class="p-2 cart_pay momo">
                                             <div className=" custom-control card-product-option-item custom-radio mb-0">
-                                                <input type="radio" value="momo" id={'momo'} name="pay_order" className="custom-control-input" />
+                                                <input type="radio" value="momo" id={'momo'} name="pay_order_momo" className="custom-control-input" />
                                                 <label htmlFor={`momo`} className="custom-control-label card-cart-option-label  tch-custom-radio">
                                                     <div className="card-cart-option-value">
                                                         <span className="text card-cart-option-money">
@@ -219,7 +219,7 @@ export default function CartOrder() {
                                         </div>
                                         <div class="p-2 cart_pay zalopay">
                                             <div className=" custom-control card-product-option-item custom-radio mb-0">
-                                                <input type="radio" value="zaloPay" id={'zaloPay'} name="pay_order" className="custom-control-input" />
+                                                <input type="radio" value="zaloPay" id={'zaloPay'} name="pay_order_zalopay" className="custom-control-input" />
                                                 <label htmlFor={`zaloPay`} className="custom-control-label card-cart-option-label  tch-custom-radio">
                                                     <div className="card-cart-option-value">
                                                         <span className="text card-cart-option-money">
